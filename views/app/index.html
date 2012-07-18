@@ -1,0 +1,56 @@
+<!--
+  Derby templates are similar to Handlebars, except that they are first
+  parsed as HTML, and there are a few extensions to make them work directly
+  with models. A single HTML template defines the HTML output, the event
+  handlers that update the model after user interaction, and the event handlers
+  that update the DOM when the model changes.
+
+  As in Handlebars, double curly braces output a value literally. Derby
+  templates add single curly braces, which output a value and set up
+  model <- -> view bindings for that object.
+
+  Elements that end in colon define template names. Pre-defined templates
+  are capitalized by convention, but template names are case-insensitive.
+  Pre-defined templates are automatically included when the page is rendered.
+-->
+
+<Title:>
+  Potlucker 6000
+
+<Header:>
+  <!-- This is a component defined in the /ui directory -->
+  <ui:connectionAlert>
+
+<Body:>
+  <h1>Potlucker 6000</h1>
+  <h2>Manage Players</h2>
+  <h3>{{_message}}</h3>
+  <table>
+    <thead>
+      <th>&nbsp;</th>
+      <th>Name</th>
+      <th>Defense</th>
+      <th>Offense</th>
+      <th>Speed</th>
+      <th>Power</th>
+    </thead>  
+    <tbody>
+      {{#each people}}
+      <td> &nbsp; </td>
+      <td> <input id="txtName"    type="text"   value="{name}" /> </td>
+      <td> <input id="txtDefense" type="number" value="{defense}" /> </td>
+      <td> <input id="txtOffense" type="number" value="{offense}" /> </td>
+      <td> <input id="txtSpeed"   type="number" value="{speed}" /> </td>
+      <td> <input id="txtPower"   type="number" value="{power}" /> </td> 
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <td> <a x-bind="click: add">Add</a> </td>
+      <td> <input id="txtNewName"    type="text"   value="{newPerson.name}" /> </td>
+      <td> <input id="txtNewDefense" type="number" value="{newPerson.defense}" /> </td>
+      <td> <input id="txtNewOffense" type="number" value="{newPerson.offense}" /> </td>
+      <td> <input id="txtNewSpeed"   type="number" value="{newPerson.speed}" /> </td>
+      <td> <input id="txtNewPower"   type="number" value="{newPerson.power}" /> </td> 
+    </tfoot>
+  </table>
+  
