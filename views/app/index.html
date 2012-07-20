@@ -23,8 +23,8 @@
 
 <Body:>
   <h1>Potlucker 6000</h1>
-  <h2>Manage Players</h2>
-  <h3>{{_message}}</h3>
+  <h2>Manage Players</h2> 
+  <h3>{potluck.data.message}</h3>
   <table>
     <thead>
       <th>&nbsp;</th>
@@ -35,22 +35,22 @@
       <th>Power</th>
     </thead>  
     <tbody>
-      {{#each people}}
+      {#each potluck.data.people}
       <td> &nbsp; </td>
       <td> <input id="txtName"    type="text"   value="{name}" /> </td>
       <td> <input id="txtDefense" type="number" value="{defense}" /> </td>
       <td> <input id="txtOffense" type="number" value="{offense}" /> </td>
       <td> <input id="txtSpeed"   type="number" value="{speed}" /> </td>
       <td> <input id="txtPower"   type="number" value="{power}" /> </td> 
-      {{/each}}
+      {/each}
     </tbody>
     <tfoot>
       <td> <a x-bind="click: add">Add</a> </td>
-      <td> <input id="txtNewName"    type="text"   value="{newPerson.name}" /> </td>
-      <td> <input id="txtNewDefense" type="number" value="{newPerson.defense}" /> </td>
-      <td> <input id="txtNewOffense" type="number" value="{newPerson.offense}" /> </td>
-      <td> <input id="txtNewSpeed"   type="number" value="{newPerson.speed}" /> </td>
-      <td> <input id="txtNewPower"   type="number" value="{newPerson.power}" /> </td> 
+      <td> <input id="txtNewName"    type="text"   value="{potluck.data.person.name}" /> </td>
+      <td> <input id="txtNewDefense" type="number" value="{potluck.data.person.defense}" /> </td>
+      <td> <input id="txtNewOffense" type="number" value="{potluck.data.person.offense}" /> </td>
+      <td> <input id="txtNewSpeed"   type="number" value="{potluck.data.person.speed}" /> </td>
+      <td> <input id="txtNewPower"   type="number" value="{potluck.data.person.power}" /> </td> 
     </tfoot>
   </table>
   
