@@ -7,8 +7,7 @@
     "derby": "*",
     "derby-ui-boot": "*",
     "express": "3.0.0beta4",
-    "gzippo": ">=0.1.7",
-    "jasmine-node": "*"
+    "gzippo": ">=0.1.7" 
   },
   "private": true
 }
