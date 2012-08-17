@@ -5,8 +5,10 @@
   "main": "./server.js",
   "dependencies": {
     "derby": "*",
+    "derby-ui-boot": "*",
     "express": "3.0.0beta4",
-    "gzippo": ">=0.1.7"
+    "gzippo": ">=0.1.7",
+    "jasmine-node": "*"
   },
   "private": true
 }

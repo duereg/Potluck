@@ -1,3 +1,4 @@
+<import: src="home">
 <!--
   Derby templates are similar to Handlebars, except that they are first
   parsed as HTML, and there are a few extensions to make them work directly
@@ -21,42 +22,4 @@
   <!-- This is a component defined in the /ui directory -->
   <ui:connectionAlert>
 
-<Body:>
-  <h1>Potlucker 6000</h1>
-  <h2>Manage Players</h2> 
-  <h3>{potluck.data.message}</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>&nbsp;</th>
-        <th>Name</th>
-        <th>Defense</th>
-        <th>Offense</th>
-        <th>Speed</th>
-        <th>Power</th>
-      </tr>
-    </thead>  
-    <tbody>
-      {#each potluck.data.people as :person}
-      <tr>
-        <td> &nbsp; </td>
-        <td> <input type="text"   value="{:person.name}" /> </td>
-        <td> <input type="number" value="{:person.defense}" /> </td>
-        <td> <input type="number" value="{:person.offense}" /> </td>
-        <td> <input type="number" value="{:person.speed}" /> </td>
-        <td> <input type="number" value="{:person.power}" /> </td> 
-      </tr>
-      {/each}
-    </tbody>
-    <tfoot>
-      <tr>
-        <td> <a x-bind="click: add">Add</a> </td>
-        <td> <input id="txtNewName"    type="text"   value="{potluck.data.person.name}" /> </td>
-        <td> <input id="txtNewDefense" type="number" value="{potluck.data.person.defense}" /> </td>
-        <td> <input id="txtNewOffense" type="number" value="{potluck.data.person.offense}" /> </td>
-        <td> <input id="txtNewSpeed"   type="number" value="{potluck.data.person.speed}" /> </td>
-        <td> <input id="txtNewPower"   type="number" value="{potluck.data.person.power}" /> </td> 
-      </tr>
-    </tfoot>
-  </table>
   
