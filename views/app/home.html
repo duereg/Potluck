@@ -1,39 +1,75 @@
 
 <Body:>
-  <h1>Potlucker 6000</h1>
-  <h2>Manage Players</h2> 
-  <h3>{potluck.data.message}</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>&nbsp;</th>
-        <th>Name</th>
-        <th>Defense</th>
-        <th>Offense</th>
-        <th>Speed</th>
-        <th>Power</th>
-      </tr>
-    </thead>  
-    <tbody>
-      {#each potluck.data.people as :person}
-      <tr>
-        <td> &nbsp; </td>
-        <td> <input type="text"   value="{:person.name}" /> </td>
-        <td> <input type="number" value="{:person.defense}" /> </td>
-        <td> <input type="number" value="{:person.offense}" /> </td>
-        <td> <input type="number" value="{:person.speed}" /> </td>
-        <td> <input type="number" value="{:person.power}" /> </td> 
-      </tr>
-      {/each}
-    </tbody>
-    <tfoot>
-      <tr>
-        <td> <a x-bind="click: add">Add</a> </td>
-        <td> <input id="txtNewName"    type="text"   value="{potluck.data.person.name}" /> </td>
-        <td> <input id="txtNewDefense" type="number" value="{potluck.data.person.defense}" /> </td>
-        <td> <input id="txtNewOffense" type="number" value="{potluck.data.person.offense}" /> </td>
-        <td> <input id="txtNewSpeed"   type="number" value="{potluck.data.person.speed}" /> </td>
-        <td> <input id="txtNewPower"   type="number" value="{potluck.data.person.power}" /> </td> 
-      </tr>
-    </tfoot>
-  </table>
+<h1>Potlucker 6000</h1>
+<h2>Manage Players</h2> 
+<h3>{potluck.message}</h3>
+<div id="divContainer" class="container">
+  <div id="divContainerRow" class="row-fluid">
+    <div id="divContent" class="span12">
+      <!--Body content--> 
+      <section id="secPeople">
+        <div class="row-fluid">
+          {#each potluck.people as :person}
+            <app:field daField="{:person.firstName}">
+            <app:field daField="{:person.lastName}">
+            <app:field daField="{:person.email}">
+            <app:field daField="{:person.ranking}">
+          {/}
+        </div>
+      </section>
+      <section id="secNewPerson">
+        <div class="form-actions">
+          <div class="row-fluid">
+            <div>
+              {potluck.person.firstName.value}
+            </div>
+            <div>
+              {potluck.person.firstName.type}
+            </div>
+            <div>
+              {potluck.person.firstName.label}
+            </div>
+            <div>
+              {potluck.person.firstName.message}
+            </div>
+            <app:eachfield cssClass="{potluck.person.firstName.cssClass}" 
+                       label="{potluck.person.firstName.label}" 
+                       value="{potluck.person.firstName.value}" 
+                       message="{potluck.person.firstName.message}"
+                       type="{potluck.person.firstName.type}">
+            <app:field daField="{potluck.person.lastName}">
+            <app:field daField="{potluck.person.email}">
+            <app:field daField="{potluck.person.ranking}">
+          </div>
+          <div class="row-fluid">
+            <div class="span12">
+              <a x-bind="click: add" class="btn btn-primary">Add</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div> 
+
+<eachfield:>
+<div class="span3">
+  <div class="control-group {{{cssClass}}}">
+    <label class="control-label">{{{label}}}</label>
+    <div class="controls">
+      <input type="{{{type}}}" value="{{{value}}}" />
+      <span class="help-inline">{{{message}}}</span>
+    </div>
+  </div>
+</div>
+
+<field:>
+<div class="span3">
+  <div class="control-group {{{daField.cssClass}}}">
+    <label class="control-label">{{{daField.label}}}</label>
+    <div class="controls">
+      <input type="{{{daField.type}}}" value="{{{daField.value}}}" />
+      <span class="help-inline">{{{daField.message}}}</span>
+    </div>
+  </div>
+</div>
