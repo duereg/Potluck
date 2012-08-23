@@ -8,35 +8,19 @@
     <div id="divContent" class="span12">
       <!--Body content--> 
       <section id="secPeople">
+        {#each potluck.people as :person}
         <div class="row-fluid">
-          {#each potluck.people as :person}
-            <app:field daField="{:person.firstName}">
-            <app:field daField="{:person.lastName}">
-            <app:field daField="{:person.email}">
-            <app:field daField="{:person.ranking}">
-          {/}
+          <app:field daField="{:person.firstName}">
+          <app:field daField="{:person.lastName}">
+          <app:field daField="{:person.email}">
+          <app:field daField="{:person.ranking}">
         </div>
+        {/} 
       </section>
       <section id="secNewPerson">
         <div class="form-actions">
-          <div class="row-fluid">
-            <div>
-              {potluck.person.firstName.value}
-            </div>
-            <div>
-              {potluck.person.firstName.type}
-            </div>
-            <div>
-              {potluck.person.firstName.label}
-            </div>
-            <div>
-              {potluck.person.firstName.message}
-            </div>
-            <app:eachfield cssClass="{potluck.person.firstName.cssClass}" 
-                       label="{potluck.person.firstName.label}" 
-                       value="{potluck.person.firstName.value}" 
-                       message="{potluck.person.firstName.message}"
-                       type="{potluck.person.firstName.type}">
+          <div class="row-fluid"> 
+            <app:field daField="{potluck.person.firstName}">
             <app:field daField="{potluck.person.lastName}">
             <app:field daField="{potluck.person.email}">
             <app:field daField="{potluck.person.ranking}">
@@ -51,25 +35,16 @@
     </div>
   </div>
 </div> 
-
-<eachfield:>
-<div class="span3">
-  <div class="control-group {{{cssClass}}}">
-    <label class="control-label">{{{label}}}</label>
-    <div class="controls">
-      <input type="{{{type}}}" value="{{{value}}}" />
-      <span class="help-inline">{{{message}}}</span>
-    </div>
-  </div>
-</div>
-
+ 
 <field:>
+{{{#with daField}}}
 <div class="span3">
-  <div class="control-group {{{daField.cssClass}}}">
-    <label class="control-label">{{{daField.label}}}</label>
+  <div class="control-group {{cssClass}}">
+    <label class="control-label">{{label}}</label>
     <div class="controls">
-      <input type="{{{daField.type}}}" value="{{{daField.value}}}" />
-      <span class="help-inline">{{{daField.message}}}</span>
+      <input type="{{type}}" value="{{value}}" />
+      <span class="help-inline">{{message}}</span>
     </div>
   </div>
 </div>
+{{{/}}}
