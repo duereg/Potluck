@@ -1,5 +1,5 @@
-
-<Body:>
+<import: src="boot">
+<Body:> 
 <form class="form-horizontal">
   <div id="divPeeps" class="container"> 
     <section id="secHeader">
@@ -34,10 +34,10 @@
   <section id="secNewPerson">
     <div class="form-actions">
       <div class="row-fluid"> 
-        <app:field daField="{potluck.person.firstName}">
-        <app:field daField="{potluck.person.lastName}">
-        <app:field daField="{potluck.person.email}">
-        <app:field daField="{potluck.person.ranking}">
+          <app:boot:input data="{potluck.person.firstName}">
+          <app:boot:input data="{potluck.person.lastName}">
+          <app:boot:input data="{potluck.person.email}">
+          <app:boot:input data="{potluck.person.ranking}">
       </div>
       <div class="row-fluid">
         <div class="span12">
@@ -47,15 +47,3 @@
     </div>
   </section>
 </div>
-<field:>
-{{{#with daField}}}
-<div class="span3">
-  <div class="control-group {.cssClass}">
-    <label class="control-label">{.label}</label>
-    <div class="controls">
-      <input type="{.type}" class="input-medium" value="{.value}" />
-      <span class="help-inline">{.message}</span>
-    </div>
-  </div>
-</div>
-{{{/}}}
