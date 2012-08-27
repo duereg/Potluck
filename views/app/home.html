@@ -1,49 +1,60 @@
 
 <Body:>
-<h1>Potlucker 6000</h1>
-<h2>Manage Players</h2> 
-<h3>{potluck.message}</h3>
-<div id="divContainer" class="container">
-  <div id="divContainerRow" class="row-fluid">
-    <div id="divContent" class="span12">
-      <!--Body content--> 
-      <section id="secPeople">
-        {#each potluck.people as :person}
-        <div class="row-fluid">
-          <app:field daField="{:person.firstName}">
-          <app:field daField="{:person.lastName}">
-          <app:field daField="{:person.email}">
-          <app:field daField="{:person.ranking}">
+<form class="form-horizontal">
+  <div id="divPeeps" class="container"> 
+    <section id="secHeader">
+      <h1>Potlucker 6000</h1>
+      <h2>Manage Players</h2> 
+      <h3>{potluck.message}</h3>
+    </section>
+    <!--Body content--> 
+    <section id="secPeople">
+      <table id="tblPeople" class="table table-horizontal table-hover table-bordered">
+        <thead>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>E-mail</th>
+          <th>Ranking</th>
+        </thead>
+        <tbody>
+          {#each potluck.people as :person}
+          <tr>
+            <td>{:person.firstName.value}</td>
+            <td>{:person.lastName.value}</td>
+            <td>{:person.email.value}</td>
+            <td>{:person.ranking.value}</td>
+          </tr> 
+          {/}
+        </tbody>
+      </table> 
+    </section> 
+  </div> 
+</form>
+<div class="container">
+  <section id="secNewPerson">
+    <div class="form-actions">
+      <div class="row-fluid"> 
+        <app:field daField="{potluck.person.firstName}">
+        <app:field daField="{potluck.person.lastName}">
+        <app:field daField="{potluck.person.email}">
+        <app:field daField="{potluck.person.ranking}">
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <a x-bind="click: add" class="btn btn-primary">Add</a>
         </div>
-        {/} 
-      </section>
-      <section id="secNewPerson">
-        <div class="form-actions">
-          <div class="row-fluid"> 
-            <app:field daField="{potluck.person.firstName}">
-            <app:field daField="{potluck.person.lastName}">
-            <app:field daField="{potluck.person.email}">
-            <app:field daField="{potluck.person.ranking}">
-          </div>
-          <div class="row-fluid">
-            <div class="span12">
-              <a x-bind="click: add" class="btn btn-primary">Add</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
-  </div>
-</div> 
- 
+  </section>
+</div>
 <field:>
 {{{#with daField}}}
 <div class="span3">
-  <div class="control-group {{cssClass}}">
-    <label class="control-label">{{label}}</label>
+  <div class="control-group {.cssClass}">
+    <label class="control-label">{.label}</label>
     <div class="controls">
-      <input type="{{type}}" value="{{value}}" />
-      <span class="help-inline">{{message}}</span>
+      <input type="{.type}" class="input-medium" value="{.value}" />
+      <span class="help-inline">{.message}</span>
     </div>
   </div>
 </div>
