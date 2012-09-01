@@ -11,6 +11,7 @@
     <section id="secPeople">
       <table id="tblPeople" class="table table-horizontal table-hover table-bordered">
         <thead>
+          <th></th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>E-mail</th>
@@ -18,12 +19,11 @@
         </thead>
         <tbody>
           {#each potluck.people as :person}
-          <tr>
-            <td>{:person.firstName.value}</td>
-            <td>{:person.lastName.value}</td>
-            <td>{:person.email.value}</td>
-            <td>{:person.ranking.value}</td>
-          </tr> 
+            {#if :person.display}
+            <app:forDisplay>
+            {else}
+            <app:forEdit>
+            {/}
           {/}
         </tbody>
       </table> 
@@ -47,3 +47,19 @@
     </div>
   </section>
 </div>
+<forDisplay:>
+<tr id="{{:person.id}}">
+  <td><a x-bind="click: edit">Edit</a></td>
+  <td>{:person.firstName.value}</td>
+  <td>{:person.lastName.value}</td>
+  <td>{:person.email.value}</td>
+  <td>{:person.ranking.value}</td>
+</tr> 
+<forEdit:>
+<tr id="{{:person.id}}" >
+  <td><a x-bind="click: display">Close</a></td>
+  <td><app:boot:input data="{:person.firstName}"></td>
+  <td><app:boot:input data="{:person.lastName}"></td>
+  <td><app:boot:input data="{:person.email}"></td>
+  <td><app:boot:input data="{:person.ranking}"></td> 
+</tr> 
