@@ -58,8 +58,12 @@
 <forEdit:>
 <tr id="{{:person.id}}" >
   <td><a x-bind="click: display">Close</a></td>
-  <td><app:boot:input data="{:person.firstName}"></td>
-  <td><app:boot:input data="{:person.lastName}"></td>
-  <td><app:boot:input data="{:person.email}"></td>
-  <td><app:boot:input data="{:person.ranking}"></td> 
+  <td><app:editor data="{:person.firstName}"></td>
+  <td><app:editor data="{:person.lastName}"></td>
+  <td><app:editor data="{:person.email}"></td>
+  <td><app:editor data="{:person.ranking}"></td> 
 </tr> 
+<editor:>
+  {{{#with data}}}
+    <input type="{.type}" value="{.value}" />
+  {{{/}}}
