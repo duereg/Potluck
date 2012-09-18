@@ -1,13 +1,19 @@
 {
   "name": "potluck",
-  "description": "",
-  "version": "0.0.0",
+  "description": "A Potluck Team Generator",
+  "version": "0.0.1",
+  "homepage": "http://derbyjs.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/duereg/Potluck.git"
+  },
   "main": "./server.js",
   "dependencies": {
     "derby": "*",
     "derby-ui-boot": "*",
     "express": "3.0.0beta4",
-    "gzippo": ">=0.1.7" 
+    "gzippo": ">=0.1.7",
+    "racer-db-mongo": "*" 
   },
   "private": true
 }

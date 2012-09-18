@@ -1,15 +1,10 @@
 <import: src="boot">
 <Body:> 
 <form class="form-horizontal">
-  <div id="divPeeps" class="container"> 
-    <section id="secHeader">
-      <h1>Potlucker 6000</h1>
-      <h2>Manage Players</h2> 
-      <h3>{potluck.message}</h3>
-    </section>
+  <div id="divPeeps" class="container">  
     <!--Body content--> 
     <section id="secPeople">
-      <table id="tblPeople" class="table table-horizontal table-hover table-bordered">
+      <table id="tblPeople" class="table table-horizontal table-hover table-bordered table-condensed table-striped" >
         <thead>
           <th></th>
           <th>First Name</th>
@@ -18,7 +13,7 @@
           <th>Ranking</th>
         </thead>
         <tbody>
-          {#each potluck.people as :person}
+          {#each potluck.event.people as :person}
             {#if :person.display}
             <app:forDisplay>
             {else}
@@ -32,7 +27,6 @@
 </form>
 <div class="container">
   <section id="secNewPerson">
-    <div class="form-actions">
       <div class="row-fluid"> 
           <app:boot:input data="{potluck.person.firstName}">
           <app:boot:input data="{potluck.person.lastName}">
@@ -44,7 +38,6 @@
           <a x-bind="click: add" class="btn btn-primary">Add</a>
         </div>
       </div>
-    </div>
   </section>
 </div>
 <forDisplay:>

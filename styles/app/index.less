@@ -1,0 +1,36 @@
+@import "../base";
+
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-border-radius: radius;
+}
+
+body {
+	background: #150054;	
+	color: white;
+	padding-top: 70px;
+}
+
+section {
+	background: white;
+	color: black;
+	padding: 20px;
+	.border-radius(10px);
+	margin-bottom: 20px;
+}
+
+.masthead { 
+	margin-bottom: 0; 
+	
+	.btn {
+		padding: 14px 24px;
+		font-size: 24px;
+		font-weight: 200;
+	}
+}
+
+.jumbotron {
+	position: relative; 
+	text-align: center;
+}
