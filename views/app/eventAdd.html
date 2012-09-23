@@ -1,0 +1,23 @@
+<import: src="boot">
+<Body:> 
+<form class="form-horizontal">
+  <div id="divEventAdd" class="container">  
+    <!--Body content--> 
+    <section id="secEventAdd">
+      <div class="row-fluid">
+        <h1>Add Your Event</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <app:boot:input data="{potluck.event.new.name}">  
+          <app:boot:input data="{potluck.event.new.date}">
+          <hr/>
+          <app:boot:input data="{potluck.event.new.address.line1}">
+          <app:boot:input data="{potluck.event.new.address.line2}">
+          <app:boot:input data="{potluck.event.new.address.city}">
+          <app:boot:input data="{potluck.event.new.address.state}">
+        </div> 
+      </div>
+    </section>
+  </div>
+</form>
